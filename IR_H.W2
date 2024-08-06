@@ -1,0 +1,55 @@
+import './App.css'
+
+const RandomNumber = () =>{
+  const number = Math.floor(Math.random()*100);
+  return <p>Random Number: {number}</p>
+}
+
+const AbsoluteValue = () => {
+  const number = -10
+  const num = Math.abs(number)
+  return <p>Absolute Value: {num}</p>
+}
+
+const SumOfEvenNumbers = () => {
+  const numbers = [1, 2, 3, 4, 5, 6, 7]
+  const sum = numbers.reduce((acc,curr) =>
+   curr % 2 === 0 ? acc = acc+curr : acc ,0)
+  return <p>Sum of even numbers: {sum} </p>
+}
+
+const PerimeterOfSquare = () => {
+  const length = 5;
+  return (
+    <div>
+    <h1>Square Perimeter Calculator</h1>
+     <p>Side Length: {length}cm</p> 
+     <p>Perimeter: {4*length}cm</p> 
+    </div>
+  )
+}
+
+const CurrencyConverter = () => {
+  const USD = 50;
+  const USDToINR = USD * 74.5
+  return (
+    <div>
+    <h1>Currency Convertor</h1>
+    <p>Amount in USD: ${USD}</p>
+    <p>Exchange Rate: 1 USD = 74.5 INR </p>  
+    <p>Amount in INR: INR {USDToINR}</p>  
+    </div>
+  )
+}
+
+export default function App() {
+  return (
+    <main>
+    <RandomNumber/>
+    <AbsoluteValue/>
+    <SumOfEvenNumbers/>
+    <PerimeterOfSquare/>
+    <CurrencyConverter/>  
+    </main>
+  )
+}
