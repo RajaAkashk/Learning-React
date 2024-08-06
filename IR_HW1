@@ -1,0 +1,86 @@
+import "./App.css";
+
+const ArrayOperations = () => {
+  const numbers = [1, 2, 3, 4, 5];
+  const sumOfArr = numbers.reduce((acc, curr) => (acc = acc + curr), 0);
+  const maximum = numbers.reduce(
+    (acc, curr) => (acc < curr ? (acc = curr) : acc),
+    numbers[0],
+  );
+  const minimum = numbers.reduce(
+    (acc, curr) => (acc < curr ? acc : curr),
+    numbers[0],
+  );
+
+  return (
+    <div>
+      <h1>Arrray Operations</h1>
+      <p>Sum: {sumOfArr}</p>
+      <p>Average: {sumOfArr / numbers.length}</p>
+      <p>Maximum: {maximum}</p>
+      <p>Minimun: {minimum}</p>
+    </div>
+  );
+};
+
+const ObjectManipulation = () => {
+  const person = {
+    name: "Sarah",
+    age: 28,
+    city: "New York",
+  };
+  person.age = person.age + 1;
+  return (
+    <div>
+      <h1>Person Details</h1>
+      <p>Name: {person.name}</p>
+      <p>Age: {person.age}</p>
+      <p>City: {person.city}</p>
+    </div>
+  );
+};
+
+const SquareArea = () =>{
+  const length = 5;
+  return(
+    <div>
+    <h1>Area Of Square</h1>
+    <p>The area of square is: {length*length}</p>  
+    </div>
+  )
+}
+
+
+const CapitalizeString = () => {
+  const str = "hello world"
+  return(
+      <div>
+      <h1>Capitalize Text</h1>
+      <p>{str.toUpperCase()}</p>  
+      </div>
+  )
+}
+
+
+const CircleArea = () =>  {
+  const radius = 8;
+  return(
+    <div>
+    <h1>Area of Circle</h1>
+    <p>The area of circle is: {3.14*radius*radius}</p>  
+    </div>
+  )
+}
+
+
+export default function App() {
+  return (
+    <main>
+      <ArrayOperations/>
+      <ObjectManipulation/>
+      <SquareArea/>
+      <CapitalizeString/>
+      <CircleArea/>
+    </main>
+  );
+}
