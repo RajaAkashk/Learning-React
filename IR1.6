@@ -1,0 +1,65 @@
+import "./App.css";
+
+const GenerateGreeting = () => {
+  const greeting = (name) => {
+     return <h1>Hello, {name}!</h1>;
+  }
+ return greeting("John")
+}
+
+
+const CalculateArea = () => {
+  const length = 10
+  const breath = 5
+  const areaOfRectangle = () => {
+    return <p>Rectangle Area: {length*breath}</p>
+  }
+  return areaOfRectangle()
+}
+
+
+const GenerateMessage = () => {
+  const getHoursFunction = () => {
+const getHours = new Date().getHours();
+    if(getHours < 12){
+      return <h1>Good Morning!</h1>
+    } else if(getHours < 18){
+        return <h1>Good Afternoon!</h1>
+      }else {
+      return <h1>Good Evening!</h1>
+      }
+  }
+  return getHoursFunction()
+}
+
+
+const CalculatePerimeter = () => {
+  const length = 10
+  const breath = 5
+  const perimeterOfRectangle = () => {
+    return <p>Rectangle Perimeter: {(length*breath)*2}</p>
+  }
+  return perimeterOfRectangle()
+}
+
+
+const CalculateVolume = () => {
+  const radius = 3
+  const height = 5
+  const volumeOfCylinder = () => {
+    return <p>Volume of Cylinder: {3.14*radius*radius*height}</p>
+  }
+  return volumeOfCylinder()
+}
+
+export default function App() {
+  return (
+    <main>
+      <GenerateGreeting />
+      <CalculateArea/>
+      <CalculatePerimeter/>
+      <GenerateMessage/>
+      <CalculateVolume/>
+    </main>
+  );
+}
