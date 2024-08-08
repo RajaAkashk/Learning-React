@@ -1,0 +1,40 @@
+import './App.css'
+
+const Header = () => {
+  return <h1>Product Page</h1>
+}
+
+const ProductPage = ({inStock}) => {
+  const data ={
+    name:"iPhone 15 Pro",
+    price: 499.99,
+    color: "Midnight Green",
+    description: "The lastest flagship smartphone from Apple with cutting-edge features and stunning design.",
+    isStock: inStock ? "In Stock" : "Currently out of stock", 
+  }
+
+  return (
+    <div>
+    <h2>{data.name}</h2>
+    <img src='https://placehold.co/150x150?' alt="image"/>
+    <p>Price: ${data.price}</p>
+    <p>Color: {data.color}</p>
+    <p>Description: {data.description}</p>
+    <p><strong>{data.isStock}</strong></p>
+    </div>
+  )
+}
+
+const Footer = () => {
+  return <p>&copy; 2024 Apple Inc.</p>
+}
+
+export default function App() {
+  return (
+    <main>
+    <Header/>
+    <ProductPage inStock={true}/>
+    <Footer/>
+    </main>
+  )
+}
