@@ -1,0 +1,122 @@
+import "./App.css";
+
+const LaptopsList = ({ laptops }) => {
+  const laptopList = laptops.map((laptop) => (
+    <div key={laptop.id}>
+      <h3>{laptop.brand}</h3>
+      <p>Price: ${laptop.price}</p>
+    </div>
+  ));
+  return (
+    <>
+      <h2>Laptops</h2>
+      {laptopList}
+      <hr />
+    </>
+  );
+};
+
+const TouristLocations = ({ locations }) => {
+  const touristLocations = locations.map((location) => (
+    <div key={location.id}>
+      <h3>{location.name}</h3>
+      <p>Location: {location.location}</p>
+    </div>
+  ));
+  return (
+    <>
+      <h2>Tourist Spots</h2>
+      {touristLocations}
+      <hr />
+    </>
+  );
+};
+
+const PodcastList = ({ podcasts }) => {
+  const podcastList = podcasts.map((podcast) => (
+    <div key={podcast.id}>
+      <h3>{podcast.episode}</h3>
+      <p>Duration: {podcast.duration}</p>
+    </div>
+  ));
+  return (
+    <>
+      <h2>Podcast Episode</h2>
+      {podcastList}
+      <hr />
+    </>
+  );
+};
+
+const ArticleList = ({ articles }) => {
+  const podcastLists = articles.map((article) => (
+    <div key={article.id}>
+      <h3>{article.news}</h3>
+      <p>{article.description}</p>
+    </div>
+  ));
+  return (
+    <>
+      <h2>News Articles</h2>
+      {podcastLists}
+      <hr />
+    </>
+  );
+};
+
+const GamesList = ({games}) => {
+  const gamesList = games.map(game => (
+    <div key={game.id}>
+    <h3>{game.game}</h3>
+      <p>Genre: {game.genre}</p>
+    </div>
+  ))
+  return(
+    <>
+    <h2>Games</h2>
+      {gamesList}
+    </>
+  )
+}
+
+export default function App() {
+  const laptops = [
+    { id: 1, brand: "Dell", price: 999 },
+    { id: 2, brand: "HP", price: 899 },
+    { id: 3, brand: "Lenovo", price: 1099 },
+  ];
+
+  const touristSpots = [
+    { id: 1, name: "Grand Canyon", location: "Arizona, USA" },
+    { id: 2, name: "Eiffle Towar", location: "Paris, France" },
+    { id: 3, name: "Great Wall of China", location: "Beijing, China" },
+  ];
+
+  const podcasts = [
+    { id: 1, episode: "Episode 1", duration: "30 minutes" },
+    { id: 2, episode: "Episode 2", duration: "45 minutes" },
+    { id: 3, episode: "Episode 3", duration: "60 minutes" },
+  ];
+
+  const articles = [
+    { id: 1, news: "News 1", description: "Description 1" },
+    { id: 2, news: "News 2", description: "Description 2" },
+    { id: 3, news: "News 3", description: "Description 3" },
+  ];
+
+  const games = [
+    { id: 1, game: "Game 1", genre: "Action" },
+    { id: 2, game: "Game 2", genre: "Adventure" },
+    { id: 3, game: "Game 3", genre: "Strategy" },
+  ];
+
+  return (
+    <main>
+      <LaptopsList laptops={laptops} />
+      <TouristLocations locations={touristSpots} />
+      <PodcastList podcasts={podcasts} />
+      <ArticleList articles={articles} />
+      <GamesList games={games}/>
+    </main>
+  );
+}
