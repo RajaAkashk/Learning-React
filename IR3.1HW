@@ -1,0 +1,103 @@
+export default function Stays() {
+  return (
+    <main className="container pt-4">
+      <h1 className="display-4 fw-normal">Featured Stays</h1>
+
+      <div>
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1100&h=340&dpr=1"
+                alt="restaurant image"
+                class="img-fluid rounded-start"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-title fs-3 fw-medium">Luxurous Taj Mahal View Apartment</p>
+                <p class="card-text fs-5 fw-normal">Wake up to the breath taking view of the Taj Mahal from this luxurious apartment. Explore the rich history and beauty of this iconic monument right from your window.</p>
+                <p class="card-text">
+                  <small class="text-body-secondary fs-6 fw-normal">Last updated 3 mins ago</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="https://images.pexels.com/photos/221540/pexels-photo-221540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="restaurant image"
+                class="img-fluid rounded-start"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-title fs-3 fw-medium">Cozy Retreat in the Mountains</p>
+                <p class="card-text fs-5 fw-normal">Escape to nature with this cozy mountain retreat. Enjoy tranquility and stunning views while being surrounded by lush forests and fresh mountain air.</p>
+                <p class="card-text">
+                  <small class="text-body-secondary fs-6 fw-normal">Last Updated 10 mins ago</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="https://images.pexels.com/photos/2631746/pexels-photo-2631746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="restaurant image"
+                class="img-fluid rounded-start"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-title fs-3 fw-medium">Seaside Villa with Private BEach Access</p>
+                <p class="card-text fs-5 fw-normal">Indulge in luxury with this stunning seaside villa. Relax on pristine beaches, take a dip in the private pool, and soak up the sun in this exclusive coastal retreat.</p>
+                <p class="card-text">
+                  <small class="text-body-secondary fs-6 fw-normal">Last Updated 15 mins ago</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="restaurant image"
+                class="img-fluid rounded-start"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-title fs-3 fw-medium">Modern Loft in the City Center</p>
+                <p class="card-text fs-5 fw-normal">Experience urban living at its finest with this modern loft. Convenently located in the city center, it offer style, comfort, and easy access to dining and entainment options.</p>
+                <p class="card-text">
+                  <small class="text-body-secondary fs-6 fw-normal">Last Updated 20 mins ago</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      
+    </main>
+  );
+}
