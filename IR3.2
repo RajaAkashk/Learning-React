@@ -1,0 +1,46 @@
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+export default function App() {
+  return (
+    <>
+      <Header />
+      <main className="container">
+        <h1 className="display-4 pt-4 fw-normal">Featured Restaurants</h1>
+
+        <div className="pt-4">
+          <div>
+            <img
+              src="https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg?auto=compress&cs=tinysrgb&w=1600&h=950&dpr=1"
+              alt="restaurant image"
+              className="img-fluid rounded"
+            />
+          </div>
+          <div className="mt-3">
+            <h3 className="display-6 fw-medium">Taste of Italy</h3>
+            <p className="fs-5 fw-normal">Italian | Rating: 4.5</p>
+            <p className="fs-5 fw-normal">123 Mian Street, Anytown, USA</p>
+          </div>
+        </div>
+
+        <div className="pt-4">
+          <div>
+            <img
+              src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1600&h=950&dpr=1"
+              alt="restaurant image"
+              className="img-fluid rounded"
+            />
+          </div>
+          <div className="mt-3">
+            <h3 className="display-6 fw-medium">Spice Village</h3>
+            <p className="fs-5 fw-normal">Indian | Rating: 4.3</p>
+            <p className="fs-5 fw-normal">456 Elm Street, Anytown, USA</p>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
