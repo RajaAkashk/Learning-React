@@ -1,0 +1,79 @@
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { useParams } from "react-router-dom";
+
+const StayDetailPage = () => {
+
+  const StayId = useParams();
+
+  const stayList = [
+    {
+      id: 1,
+      name: "Cozy Cottage Retreat",
+      type: "Cottage",
+      location: "Mountain View, CA",
+      rating: 4.8,
+      description: "Escape to a charming cottage nestled in the mountains.",
+      amenities: ["Kitchen", "wifi", "parking"],
+      price: "$150/night",
+    },
+    {
+      id: 2,
+      name: "Beachfront Paradise Villa",
+      type: "Villa",
+      location: "Maui, Hawaii",
+      rating: 4.9,
+      description: "Experience luxury living in a stunning beachfront villa.",
+      amenities: ["Private Pool", "Ocean View", "Fitness Center"],
+      price: "$500/night",
+    },
+    {
+      id: 3,
+      name: "Urban Loft in the City",
+      type: "Apartment",
+      location: "New York City, NY",
+      rating: 4.5,
+      description:
+        "Live in style in a modern loft apartment in the heart of the city.",
+      amenities: ["Downtown Location", "Gym Access", "24/7 Security"],
+      price: "$250/night",
+    },
+    {
+      id: 4,
+      name: "Rustic Cabin in the Woods",
+      type: "Cabin",
+      location: "Arizona, USA",
+      rating: 4.8,
+      description: "Away from caotic city in the lap of nature.",
+      amenities: ["trekking", "Camfire", "Orgnic Food"],
+      price: "$300/night",
+    },
+  ];
+
+  const stayData = stayList.find((stay) => stay.id == StayId.stayDetailsId);
+
+  return (
+    <>
+      <Header />
+      <main className="container py-3">
+        <h1 className="display-4 fw-normal pt-2 pb-1">{stayData.name}</h1>
+        <p className="fs-5 fw-normal">Type: {stayData.type}</p>
+        <p className="fs-5 fw-normal">Location: {stayData.location}</p>
+        <p className="fs-5 fw-normal">Rating: {stayData.rating}</p>
+        <p className="fs-5 fw-normal">{stayData.description}</p>
+        <hr/>
+        <div>
+        <p className="fs-2 fw-medium pb-1">Amenties</p>
+          <ul>
+          {stayData.amenities.map((amenity,index) => 
+         (<li Key={index} className="fs-5 fw-normal">{amenity}</li>) ) }
+          </ul>
+          <p className="fs-4 fw-normal">Price: {stayData.price}</p>
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+export default StayDetailPage;
