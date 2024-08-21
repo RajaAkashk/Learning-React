@@ -1,0 +1,113 @@
+import { useParams } from "react-router-dom";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
+const RestaurantData = () => {
+  const restaurantsList = [
+    {
+      id: "1",
+      title: "The Goden Spoon",
+      cuisine: "Italian",
+      location: "123 Main Street, Cityville",
+      rating: 4.5,
+      info: "Experience authentic Italian cuisine in a cozy atmosphere.",
+      menu: [
+        {
+          name: "Spagati Carbonara",
+          price: 15,
+        },
+        {
+          name: "Margherita Pizza",
+          price: 12,
+        },
+        {
+          name: "Tiramisu",
+          price: 8,
+        }
+      ]
+    },
+
+    {
+      id: "2",
+      title: "Spice Junction",
+      cuisine: "Indian",
+      location: "456 Elm Street, Townsville",
+      rating: 4.2,
+      info: "Savor the flavor of India with our traditiona dishes.",
+      menu: [
+        {
+          name: "Chicken Tikka Masala",
+          price: 14,
+        },
+        {
+          name: "Vegetable Biryani",
+          price: 12,
+        },
+        {
+          name: "Gulab Jamun",
+          price: 6,
+        }
+      ]
+    },
+
+
+    {
+      id: "3",
+      title: "Sushi Delight",
+      cuisine: "Japanese",
+      location: "789 Oak Avenue, Villageland",
+      rating: 4.7,
+      info: "Enjoy exclusite Japanese sushi prepared by master chefs.",
+      menu: [
+        {
+          name: "California Roll",
+          price: 10,
+        },
+        {
+          name: "Shashami Platter",
+          price: 18,
+        },
+        {
+          name: "Green Tea Ice Cream",
+          price: 5,
+        }
+      ]
+    },
+
+    
+  ];
+
+  const restaurantId = useParams();
+  const restaurantData = restaurantsList.find(
+    (restaurant) => restaurant.id == restaurantId.restaurantsId,
+  );
+  
+  return (
+    <>
+      <Header />
+      <main className="container py-4">
+        <h1 className="display-4 fw-normal">{restaurantData.title}</h1>
+        <p className="fs-5 fw-normal">Cuisine: {restaurantData.cuisine}</p>
+        <p className="fs-5 fw-normal">Location: {restaurantData.location}</p>
+        <p className="fs-5 fw-normal">Rating: {restaurantData.rating}</p>
+        <p className="fs-5 fw-normal">{restaurantData.info}</p>
+        <hr />
+        <h4 className="display-6 fw-medium mb-4">Menu</h4>
+        
+        <div className="row">
+          {restaurantData.menu.map(data => (
+      <div className="col-md-4">
+        <div className="card px-3 py-2">
+          <p className="fs-4 fw-medium m-0">{data.name}</p>
+          <p className="my-1 fs-6 fw-normal">Price: ${data.price} </p>
+        </div>
+      </div>
+          ))}
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+export default RestaurantData;
