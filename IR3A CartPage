@@ -1,0 +1,51 @@
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
+const Cart = () => {
+  const cart = [
+    { id: 1, name: "Product 1", price: 99.99, quantity: 2 },
+    { id: 2, name: "Product 2", price: 129.99, quantity: 1 },
+    { id: 3, name: "Product 3", price: 79.99, quantity: 3 },
+  ];
+
+  const displayCart = cart.map((Product) => (
+    <>
+      <div key={Product.id}>
+        <ul className="list-group">
+          <li className="list-group-item">
+            <div className="d-flex justify-content-between">
+              <div className="col-md-4">
+                <p className="fs-5 fw-medium">{Product.name}</p>
+                <p className="fs-6 fw-normal">Price: ${Product.price}</p>
+                <p className="fs-6 fw-normal">Quantity: {Product.quantity}</p>
+              </div>
+
+              <div className="col-md-4">
+                <p className="fs-6 fw-medium float-end">
+                  Total: ${(Product.price * Product.quantity).toFixed(2)}
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </>
+  ));
+
+const TotalPrice = cart.reduce((acc,curr) => (acc=acc+(curr.price * curr.quantity)),0) 
+
+  return (
+    <>
+      <Header />
+      <main className="container py-4">
+        <h1 className="display-4 fw-normal pb-3">Shopping Cart</h1>
+        {displayCart}
+        <hr/>
+        <p className="fs-4 fw-medium">Total Price: ${TotalPrice}</p>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+export default Cart;
