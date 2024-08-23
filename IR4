@@ -1,0 +1,83 @@
+import { useState } from "react";
+import "./styles.css";
+
+function NumberIncreaseDecrease() {
+  const [number, setNumber] = useState(0);
+  return (
+    <div>
+      <p>{number}</p>
+      <button onClick={() => setNumber(number + 1)}>Increment</button>
+      <button onClick={() => setNumber(number - 1)}>Decrement</button>
+    </div>
+  );
+}
+
+function ToggleBackgroundColor() {
+  const [color, setColor] = useState("skyblue");
+  return (
+    <div>
+      <button
+        style={{ backgroundColor: `${color}` }}
+        onClick={() => setColor(color === "skyblue" ? "grey" : "skyblue")}
+      >
+        Toggle Background
+      </button>
+    </div>
+  );
+}
+
+function ShowHide() {
+  const [message, setMessage] = useState(false);
+  const text = "This is toggle message.";
+  return (
+    <div>
+      <p>{!message ? text : " "}</p>
+      <button onClick={() => setMessage(!message)}>Hide Message</button>
+    </div>
+  );
+}
+
+function ToogleColors() {
+  const [color, setColor] = useState("red");
+  return (
+    <div>
+      <p style={{ color: `${color}` }}>Text Color Toggle</p>
+      <button onClick={() => setColor(color === "red" ? "green" : "red")}>
+        Toggle Color
+      </button>
+    </div>
+  );
+}
+
+function ShowFruit() {
+  const [fruit, setFruit] = useState(" ");
+  const fruits = ["Apple", "Banana", "Orange", "Mango", "Grapes"];
+  const displayFruits = fruits.map((fruit, index) => (
+    <li key={index} onClick={() => setFruit(fruit)}>
+      {fruit}
+    </li>
+  ));
+  return (
+    <div>
+      <h2> Select a Fruit </h2>
+      <ul>{displayFruits}</ul>
+      <p>{fruit == " " ? " " : `You Selected: ${fruit}`}</p>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <div>
+      <NumberIncreaseDecrease />
+      <hr />
+      <ToggleBackgroundColor />
+      <hr />
+      <ShowHide />
+      <hr />
+      <ToogleColors />
+      <hr />
+      <ShowFruit />
+    </div>
+  );
+}
