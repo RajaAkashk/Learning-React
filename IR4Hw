@@ -1,0 +1,125 @@
+import { useState } from "react";
+import "./styles.css";
+
+const ValidPhoneNUmber = () => {
+  const [number, setNumber] = useState("");
+  const ValidateNumber = () => {
+    if (number.length !== 10) {
+      alert("Invalid phone number. Please enter 10 digits.");
+    } else {
+      alert("Valid phone number.");
+    }
+  };
+  return (
+    <div>
+      <label for="phoneNumber">Enter Your Phone Number: </label>
+      <input
+        id="phoneNumber"
+        onChange={(event) => setNumber(event.target.value)}
+      />
+      <button onClick={ValidateNumber}>Validate Phone Number </button>
+    </div>
+  );
+};
+
+const CheckPasswordStrength = () => {
+  const [password, setPassword] = useState("");
+  const checkPassword = () => {
+    if (password.length <= 8) {
+      alert("Password Strength: Weak");
+    } else {
+      alert("Password Strength: Strong");
+    }
+  };
+  return (
+    <div>
+      <label for="password">Enter your password: </label>
+      <input
+        id="password"
+        onChange={(event) => setPassword(event.target.value)}
+      />
+      <button onClick={checkPassword}>Check Password Strength</button>
+    </div>
+  );
+};
+
+const CalculateAge = () => {
+  const [date, setDate] = useState();
+  const calculateAge = () => {
+    if (date) {
+      const currentDate = new Date();
+      const birthDate = new Date(date);
+      let age = currentDate.getFullYear() - birthDate.getFullYear();
+      alert(`You are ${age} years old.`);
+    }
+  };
+
+  return (
+    <div>
+      <label for="brithdate">Enter your birthdate: </label>
+      <input
+        id="brithdate"
+        type="date"
+        onChange={(event) => setDate(event.target.value)}
+      />
+      <button onClick={calculateAge}>Calculate Age</button>
+    </div>
+  );
+};
+
+const FavouriteColor = () => {
+  const [color, setColor] = useState();
+  const [favColor, setFavColor] = useState();
+  const displayColor = () => {
+    setFavColor(color);
+  };
+
+  return (
+    <div>
+      <label for="favoriteColor">Enter your favorite color: </label>
+      <input
+        id="favoriteColor"
+        onChange={(event) => setColor(event.target.value)}
+      />
+      <button onClick={displayColor}>Display Color</button>
+      {favColor && <p>Your favourite color is {favColor}</p>}
+    </div>
+  );
+};
+
+const SearchQuery = () => {
+  const [search, setSearch] = useState();
+  const [find, setFind] = useState();
+
+  const searchQuery = () => {
+    setFind(search);
+  };
+
+  return (
+    <div>
+      <label for="searchInput">Enter a search query: </label>
+      <input
+        id="searchInput"
+        onChange={(event) => setSearch(event.target.value)}
+      />
+      <button onClick={searchQuery}>Search</button>
+      {find && <p>Searching for: {find}</p>}
+    </div>
+  );
+};
+
+export default function App() {
+  return (
+    <>
+      <ValidPhoneNUmber />
+      <br />
+      <CheckPasswordStrength />
+      <br />
+      <CalculateAge />
+      <br />
+      <FavouriteColor />
+      <br />
+      <SearchQuery />
+    </>
+  );
+}
