@@ -32,14 +32,14 @@ const Recipe = () => {
   };
   return (
     <div>
-      <label for="recipe">Take the survey: </label>
+      <label for="recipe">Enter your recipe: </label>
       <textarea
         id="recipe"
         rows="5"
         cols="45"
         onChange={(event) => setRecipe(event.target.value)}
       ></textarea>
-      <button onClick={saveRecipe}>Submit Survey</button>
+      <button onClick={saveRecipe}>Save Recipe</button>
       {console.log("returnRecipe::: ", returnRecipe)}
       {returnRecipe.length > 0 && (
         <ol>
@@ -60,14 +60,14 @@ const DiaryEntry = () => {
   };
   return (
     <div>
-      <label for="diary">Take the survey: </label>
+      <label for="diary">Write your diary entry: </label>
       <textarea
         id="diary"
         rows="5"
         cols="45"
         onChange={(event) => setEntry(event.target.value)}
       ></textarea>
-      <button onClick={saveDiary}>Submit Survey</button>
+      <button onClick={saveDiary}>Save Diary Entry</button>
       {diaryEntry && (
         <p>
           <em>Diary entry saved: {diaryEntry}</em>
@@ -77,6 +77,53 @@ const DiaryEntry = () => {
   );
 };
 
+const Story = () => {
+  const [story, setStory] = useState();
+  const [shareStory, setShareStory] = useState();
+  const saveStory = () => {
+    setShareStory(story);
+  };
+  return (
+    <div>
+      <label for="story">Share your story: </label>
+      <textarea
+        id="story"
+        rows="5"
+        cols="45"
+        onChange={(event) => setStory(event.target.value)}
+      ></textarea>
+      <button onClick={saveStory}>Submit story</button>
+      {shareStory && <p>{`Your story: ${shareStory}`}</p>}
+    </div>
+  );
+};
+
+const List = () => {
+  const [item, setItem] = useState();
+  const [lists, setList] = useState();
+  const displayList = () => {
+    setList(item.split(", "));
+  };
+  return (
+    <div>
+      <label for="list">Share your story: </label>
+      <textarea
+        id="list"
+        rows="5"
+        cols="45"
+        onChange={(event) => setItem(event.target.value)}
+      ></textarea>
+      <button onClick={displayList}>Display Items</button>
+      {lists && (
+        <ul>
+          {lists.map((list, index) => (
+            <li key={index}>{list}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
 
 export default function App() {
   return (
@@ -89,6 +136,9 @@ export default function App() {
       <br />
       <DiaryEntry />
       <br />
+      <Story />
+      <br />
+      <List />
     </>
   );
 }
