@@ -1,0 +1,94 @@
+import { useState } from "react";
+import "./styles.css";
+
+const Survey = () => {
+  const [survey, setSurvey] = useState("");
+  const submitSurvey = () => {
+    if (survey) {
+      alert(`Survey response: ${survey}`);
+    } else {
+      alert("Enter something in the survey.");
+    }
+  };
+  return (
+    <div>
+      <label for="survey">Take the survey: </label>
+      <textarea
+        id="survey"
+        rows="5"
+        cols="45"
+        onChange={(event) => setSurvey(event.target.value)}
+      ></textarea>
+      <button onClick={submitSurvey}>Submit Survey</button>
+    </div>
+  );
+};
+
+const Recipe = () => {
+  const [recipe, setRecipe] = useState("");
+  const [returnRecipe, setReturnRecipe] = useState([]);
+  const saveRecipe = () => {
+    setReturnRecipe(recipe.split(". "));
+  };
+  return (
+    <div>
+      <label for="recipe">Take the survey: </label>
+      <textarea
+        id="recipe"
+        rows="5"
+        cols="45"
+        onChange={(event) => setRecipe(event.target.value)}
+      ></textarea>
+      <button onClick={saveRecipe}>Submit Survey</button>
+      {console.log("returnRecipe::: ", returnRecipe)}
+      {returnRecipe.length > 0 && (
+        <ol>
+          {returnRecipe.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ol>
+      )}
+    </div>
+  );
+};
+
+const DiaryEntry = () => {
+  const [entry, setEntry] = useState();
+  const [diaryEntry, setDiaryEntry] = useState();
+  const saveDiary = () => {
+    setDiaryEntry(entry);
+  };
+  return (
+    <div>
+      <label for="diary">Take the survey: </label>
+      <textarea
+        id="diary"
+        rows="5"
+        cols="45"
+        onChange={(event) => setEntry(event.target.value)}
+      ></textarea>
+      <button onClick={saveDiary}>Submit Survey</button>
+      {diaryEntry && (
+        <p>
+          <em>Diary entry saved: {diaryEntry}</em>
+        </p>
+      )}
+    </div>
+  );
+};
+
+
+export default function App() {
+  return (
+    <>
+      <h1>Text Area Progrms</h1>
+      <br />
+      <Survey />
+      <br />
+      <Recipe />
+      <br />
+      <DiaryEntry />
+      <br />
+    </>
+  );
+}
