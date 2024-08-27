@@ -1,0 +1,120 @@
+import { useState } from "react";
+import "./styles.css";
+
+const Feedback = () => {
+  const [feedback, setFeedback] = useState("");
+  const [returnFeedback, setReturnFeedback] = useState();
+  const submitFeedback = () => {
+    setReturnFeedback(`Your feedback: ${feedback}`);
+  };
+  return (
+    <div>
+      <label for="feedback">Give your feedback: </label>
+      <textarea
+        id="feedback"
+        rows="6"
+        cols="45"
+        onChange={(event) => setFeedback(event.target.value)}
+      ></textarea>
+      <button onClick={submitFeedback}>Submit</button>
+      {returnFeedback && <p>{returnFeedback}</p>}
+    </div>
+  );
+};
+
+const Review = () => {
+  const [review, setReview] = useState("");
+  const [returnReview, setReturnReview] = useState();
+  const submitReview = () => {
+    setReturnReview(`Your review: ${review}`);
+  };
+  return (
+    <div>
+      <label for="review">Write your movie review: </label>
+      <textarea
+        id="review"
+        rows="6"
+        cols="45"
+        onChange={(event) => setReview(event.target.value)}
+      ></textarea>
+      <button onClick={submitReview}>Submit Review</button>
+      {returnReview && <p>{returnReview}</p>}
+    </div>
+  );
+};
+
+const Message = () => {
+  const [message, setMessage] = useState("");
+  const showMessage = () => {
+    message
+      ? alert(`Message: ${message.toUpperCase()}!`)
+      : alert("Enter a message!");
+  };
+  return (
+    <div>
+      <label for="message">Enter your message: </label>
+      <textarea
+        id="message"
+        rows="6"
+        cols="45"
+        onChange={(event) => setMessage(event.target.value)}
+      ></textarea>
+      <button onClick={showMessage}>Display Message</button>
+    </div>
+  );
+};
+
+const Notes = () => {
+  const [notes, setNotes] = useState();
+  const [saveNotes, setSaveNotes] = useState();
+  const saveTheNotes = () => {
+    setSaveNotes(`Notes saved: ${notes}`);
+  };
+  return (
+    <div>
+      <label for="notes">Take your notes: </label>
+      <textarea
+        id="notes"
+        rows="6"
+        cols="45"
+        onChange={(event) => setNotes(event.target.value)}
+      ></textarea>
+      <button onClick={saveTheNotes}>Save Notes</button>
+      {saveNotes && <p>{saveNotes}</p>}
+    </div>
+  );
+};
+
+const AskQuestion = () => {
+  const [question, setQuestion] = useState();
+  const [returnQuestion, setReturnQuestion] = useState();
+  const askQuestion = () => {
+    setReturnQuestion(question.includes("?") ? question : question + "?");
+  };
+  return (
+    <div>
+      <label for="questions">Ask your question: </label>
+      <textarea
+        id="questions"
+        rows="6"
+        cols="45"
+        onChange={(event) => setQuestion(event.target.value)}
+      ></textarea>
+      <button onClick={askQuestion}>Submit Question</button>
+      {returnQuestion && <p>{`Your question: ${returnQuestion}`}</p>}
+    </div>
+  );
+};
+
+
+export default function App() {
+  return (
+    <>
+      <Feedback />
+      <Review />
+      <Message />
+      <Notes />
+      <AskQuestion />
+    </>
+  );
+}
