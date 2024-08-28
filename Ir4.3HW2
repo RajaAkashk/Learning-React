@@ -1,0 +1,157 @@
+import { useState } from "react";
+import "./styles.css";
+
+const HigherEducation = () => {
+  const [degree, setDegree] = useState("");
+  const educationDegreeHandler = (event) => {
+    setDegree(event.target.value);
+  };
+  return (
+    <div>
+      <form onChange={educationDegreeHandler}>
+        <label>Choose your highes education level:</label>
+        <br />
+        <input type="radio" value="high school" name="degree" />
+        High School
+        <br />
+        <input type="radio" value="bachelors" name="degree" />
+        Bachelor's Degree
+        <br />
+        <input type="radio" value="masters" name="degree" />
+        Master's Degree
+        <br />
+        <input type="radio" value="ph.d" name="degree" />
+        Ph.D.
+      </form>
+      {degree && <p>Education level: I have a {degree} degree.</p>}
+    </div>
+  );
+};
+
+const MusicGenre = () => {
+  const [genre, setGenre] = useState("");
+  const musicGenreHandler = (event) => {
+    setGenre(event.target.value);
+  };
+  return (
+    <div>
+      <form onChange={musicGenreHandler}>
+        <label>Choose your favourite music genre:</label>
+        <br />
+        <input type="radio" value="pop" name="genre" />
+        Pop
+        <br />
+        <input type="radio" value="rock" name="genre" />
+        Rock
+        <br />
+        <input type="radio" value="hip hop" name="genre" />
+        Hip Hop
+        <br />
+        <input type="radio" value="classical" name="genre" />
+        Classical
+        <br />
+      </form>
+      {genre && <p>I like {genre} music.</p>}
+    </div>
+  );
+};
+
+const PaymentMethods = () => {
+  const [parmentMethod, setPaymentMethod] = useState("");
+  const parmentMethodHandler = (event) => {
+    setPaymentMethod(event.target.value);
+  };
+  return (
+    <div>
+      <form onChange={parmentMethodHandler}>
+        <label>Choose your preferred payment method:</label>
+        <br />
+        <input type="radio" value="Credit Card" name="genre" />
+        Credit Card
+        <br />
+        <input type="radio" value="Paypal" name="genre" />
+        Paypal
+        <br />
+        <input type="radio" value="Bitcoin" name="genre" />
+        Bitcoin
+        <br />
+        <input type="radio" value="Cash" name="genre" />
+        Cash
+        <br />
+      </form>
+      <p>Selected payment method: {parmentMethod}</p>
+    </div>
+  );
+};
+
+const PreferredWeather = () => {
+  const [weather, setWeather] = useState("");
+  const weatherHandler = (event) => {
+    setWeather(event.target.value);
+  };
+  return (
+    <div>
+      <form onChange={weatherHandler}>
+        <label>Choose your preferred weather:</label>
+        <br />
+        <input type="radio" value="sunny" name="weather" />
+        Sunny
+        <br />
+        <input type="radio" value="rainy" name="weather" />
+        Rainy
+        <br />
+        <input type="radio" value="cloudy" name="weather" />
+        Cloudy
+        <br />
+        <input type="radio" value="snowy" name="weather" />
+        Snowy
+        <br />
+      </form>
+      {weather && <p>Selected weather: I like {weather} weather.</p>}
+    </div>
+  );
+};
+
+const Occupation = () => {
+  const [occupation, setOccupation] = useState("");
+  const occupationHandler = (event) => {
+    setOccupation(event.target.value);
+  };
+  return (
+    <div>
+      <form onChange={occupationHandler}>
+        <label>Choose your occupation:</label>
+        <br />
+        <input type="radio" value="student" name="weather" />
+        Student
+        <br />
+        <input type="radio" value="teacher" name="weather" />
+        Teacher
+        <br />
+        <input type="radio" value="enginner" name="weather" />
+        Engineer
+        <br />
+        <input type="radio" value="doctor" name="weather" />
+        Doctor
+        <br />
+      </form>
+      <p>Selected occupation: {occupation} </p>
+    </div>
+  );
+};
+
+export default function App() {
+  return (
+    <main>
+      <HigherEducation />
+      <br />
+      <MusicGenre />
+      <br />
+      <PaymentMethods />
+      <br />
+      <PreferredWeather />
+      <br />
+      <Occupation />
+    </main>
+  );
+}
