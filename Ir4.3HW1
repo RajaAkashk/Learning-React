@@ -1,0 +1,139 @@
+import { useState } from "react";
+import "./styles.css";
+
+const Programming = () => {
+  const [programmingLevel, setProgrammingLevel] = useState("");
+  const programmingLevelHandler = (event) => {
+    setProgrammingLevel(event.target.value);
+  };
+  return (
+    <div>
+      <form onChange={programmingLevelHandler}>
+        <label>Select your proficiency in a programming language:</label>
+        <br />
+        <input type="radio" value="Beginner" name="level" />
+        Beginner
+        <br />
+        <input type="radio" value="Intermediate" name="level" />
+        Intermediate
+        <br />
+        <input type="radio" value="Advanced" name="level" />
+        Advanced
+        <br />
+      </form>
+      <p>Selected proficiency level: {programmingLevel}</p>
+    </div>
+  );
+};
+
+const TravelDestination = () => {
+  const [destination, setDestination] = useState("");
+  const travedestinationHandler = (event) => {
+    setDestination(event.target.value);
+  };
+  return (
+    <div>
+      <form onChange={travedestinationHandler}>
+        <label>Select your dream travel destination:</label>
+        <br />
+        <input type="radio" value="Beach" name="destination" />
+        Beach
+        <br />
+        <input type="radio" value="Mountain" name="destination" />
+        Mountain
+        <br />
+        <input type="radio" value="City" name="destination" />
+        City
+        <br />
+      </form>
+      <p>Selected travel destination: {destination}</p>
+    </div>
+  );
+};
+
+const CoffeePrefrences = () => {
+  const [coffee, setCoffee] = useState("");
+  const coffeePrefrencesHandler = (event) => {
+    setCoffee(event.target.value);
+  };
+  return (
+    <div>
+      <form onChange={coffeePrefrencesHandler}>
+        <label>Select your coffee prefrence:</label>
+        <br />
+        <input type="radio" value="Black Coffee" name="coffee" />
+        Black Coffee
+        <br />
+        <input type="radio" value="Latte" name="coffee" />
+        Latte
+        <br />
+        <input type="radio" value="Cappuccino" name="coffee" />
+        Cappuccino
+        <br />
+      </form>
+      <p>Selected coffee prefrence: {coffee}</p>
+    </div>
+  );
+};
+
+const PreffredPet = () => {
+  const [pet, setPet] = useState("");
+  const preffredPetHandler = (event) => {
+    setPet(event.target.value);
+  };
+  return (
+    <div>
+      <form onChange={preffredPetHandler}>
+        <label>Select your preferred pet:</label>
+        <br />
+        <input type="radio" value="Dog" name="pet" />
+        Dog
+        <br />
+        <input type="radio" value="Cat" name="pet" />
+        Cat
+        <br />
+        <input type="radio" value="Fish" name="pet" />
+        Fish
+        <br />
+      </form>
+      <p>Selected pet: {pet}</p>
+    </div>
+  );
+};
+
+const FavouriteSport = () => {
+  const [sport, setSport] = useState("");
+  const favouriteSportHandler = (event) => {
+    setSport(event.target.value);
+  };
+  return (
+    <div>
+      <form onChange={favouriteSportHandler}>
+        <label>Select your preferred pet:</label>
+        <br />
+        <input type="radio" value="Football" name="sport" />
+        Football
+        <br />
+        <input type="radio" value="Basketball" name="sport" />
+        Basketball
+        <br />
+        <input type="radio" value="Tennis" name="sport" />
+        Tennis
+        <br />
+      </form>
+      <p>Selected sport: {sport}</p>
+    </div>
+  );
+};
+
+export default function App() {
+  return (
+    <div>
+      <Programming />
+      <TravelDestination />
+      <CoffeePrefrences />
+      <PreffredPet />
+      <FavouriteSport />
+    </div>
+  );
+}
