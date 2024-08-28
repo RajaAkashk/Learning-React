@@ -1,0 +1,128 @@
+import { useState } from "react";
+import "./styles.css";
+
+const SelectClothingSize = () => {
+  const [clothingSize, setClothingSize] = useState("");
+  const clothingSizeHandler = (e) => {
+    setClothingSize(e.target.value);
+  };
+  return (
+    <div>
+      <label for="selectClothindSize">Select a clothing size: </label>
+      <select id="selectClothindSize" onChange={clothingSizeHandler}>
+        <option value="Small - Fits chest size 34-36 inches">Small</option>
+        <option value="Medium - Fits chest size 38-40 inches">Medium</option>
+        <option value="Large - Fits chest size 42-44 inches">Large</option>
+      </select>
+      <p>Description: {clothingSize}</p>
+    </div>
+  );
+};
+
+const SelectJobType = () => {
+  const [jobType, setJobType] = useState("");
+  const jobTypeHandler = (e) => {
+    setJobType(e.target.value);
+  };
+  return (
+    <div>
+      <label for="selectJobType">Select a job type: </label>
+      <select id="selectJobType" onChange={jobTypeHandler}>
+        <option value="Full-time - Employement for standard 40-hour workweek">
+          Full-time
+        </option>
+        <option value="Part-time - Employement for less than a  standard workweek">
+          Part-time
+        </option>
+        <option value="Contract - Temporary employement for a specific project or period">
+          Contract
+        </option>
+      </select>
+      <p>Description: {jobType}</p>
+    </div>
+  );
+};
+
+const SelectMealTime = () => {
+  const [mealTime, setMealTime] = useState("");
+  const mealTimeHandler = (e) => {
+    setMealTime(e.target.value);
+  };
+  return (
+    <div>
+      <label for="selectMealTime">Select a job type: </label>
+      <select id="selectMealTime" onChange={mealTimeHandler}>
+        <option value="Breakfast - Morning meal typically eaten before startinf the day">
+          Breakfast
+        </option>
+        <option value="Lunch - Midday meal typically eaten around noon">
+          Lunch
+        </option>
+        <option value="Dinner - Evening meal typically eaten at the end of the day">
+          Dinner
+        </option>
+      </select>
+      <p>Description: {mealTime}</p>
+    </div>
+  );
+};
+
+const SelectSkillLevel = () => {
+  const [skillLevel, setSkillLevel] = useState("");
+  const skillLevelHandler = (e) => {
+    setSkillLevel(e.target.value);
+  };
+  return (
+    <div>
+      <label for="selectSkillLevel">Select your skill level: </label>
+      <select id="selectSkillLevel" onChange={skillLevelHandler}>
+        <option value="Beginner - just starting out, limited experience or knowledge">
+          Beginner
+        </option>
+        <option value="Intermediate - Some experience or knowledge, moderate skill level">
+          Intermediate
+        </option>
+        <option value="Advanced - Extensive experience or knowledge, high skill level">
+          Advanced
+        </option>
+      </select>
+      <p>Description: {skillLevel}</p>
+    </div>
+  );
+};
+
+const SelectTemperatureUnit = () => {
+  const [temperatureUnit, setTemperatureUnit] = useState("");
+  const temperatureUnitHandler = (e) => {
+    setTemperatureUnit(e.target.value);
+  };
+  return (
+    <div>
+      <label for="selectSkillLevel">Select your skill level: </label>
+      <select id="selectSkillLevel" onChange={temperatureUnitHandler}>
+        <option value="Celsius - Temperature scale in which water freezes at 0 degrees and boils at 100 degrees">
+          Celsius
+        </option>
+        <option value="Fahrenheit - Temperature scale widely used in the United States">
+          Fahrenheit
+        </option>
+        <option value="Kelvin - Absolute temperature scale with 0 representing absolute zero">
+          Kelvin
+        </option>
+      </select>
+      <p>Description: {temperatureUnit}</p>
+    </div>
+  );
+};
+
+export default function App() {
+  return (
+    <div>
+      <SelectClothingSize />
+      <SelectJobType />
+      <SelectMealTime />
+      <SelectSkillLevel />
+      <SelectTemperatureUnit />
+    </div>
+  );
+}
