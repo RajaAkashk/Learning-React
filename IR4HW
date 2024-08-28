@@ -1,0 +1,119 @@
+import { useState } from "react";
+import "./styles.css";
+
+const SelectInstrument = () => {
+  const [instrument, setInstrument] = useState("");
+  const selectInstrumenthandler = (event) => {
+    setInstrument(event.target.value);
+  };
+  return (
+    <div>
+      <label for="selectInstrument">Select a musical instrument: </label>
+      <select id="selectInstrument" onChange={selectInstrumenthandler}>
+        <option value="Guitar">Guitar</option>
+        <option value="piano">piano</option>
+        <option value="Drums">Drums</option>
+      </select>
+      <p>Type: {instrument}</p>
+    </div>
+  );
+};
+
+const SelectLanguage = () => {
+  const [language, setLanguage] = useState("");
+  const selectLanguageHandler = (event) => {
+    setLanguage(event.target.value);
+  };
+  return (
+    <div>
+      <label for="selectLanguage">Select a language: </label>
+      <select id="selectLanguage" onChange={selectLanguageHandler}>
+        <option value="England">English</option>
+        <option value="France">French</option>
+        <option value="Spain">Spanish</option>
+      </select>
+      {language && <p>Origin: {language}</p>}
+    </div>
+  );
+};
+
+const SelectCarBrand = () => {
+  const [CarBrand, setCarBrand] = useState("");
+  const selectCarBrandHandler = (event) => {
+    setCarBrand(event.target.value);
+  };
+  return (
+    <div>
+      <label for="selectCarBrand">Select a language: </label>
+      <select id="selectCarBrand" onChange={selectCarBrandHandler}>
+        <option value="Audi-German luxury autombile manufacture">Audi</option>
+        <option value="BMW-Bavarian Motors Works,a German multinational company">
+          BMW
+        </option>
+        <option value="Tesla-American electric vehicle and clean energy company">
+          Tesla
+        </option>
+      </select>
+      <p>Details: {CarBrand}</p>
+    </div>
+  );
+};
+
+const SelectContinent = () => {
+  const [continent, setContinent] = useState("");
+  const selectContinentHandler = (event) => {
+    setContinent(event.target.value);
+  };
+  return (
+    <div>
+      <label for="selectCarBrand">Select a language: </label>
+      <select id="selectCarBrand" onChange={selectContinentHandler}>
+        <option value="Africa-The second largest and second most populous continent">
+          Africa
+        </option>
+        <option value="Asia-The largest continent by lan area and population">
+          Asia
+        </option>
+        <option value="Europe-The third most populous continent">Europe</option>
+      </select>
+      <p>Details: {continent}</p>
+    </div>
+  );
+};
+
+const SelectMovie = () => {
+  const [movie, setMovie] = useState("");
+  const selectMovieHandler = (event) => {
+    setMovie(event.target.value);
+  };
+  return (
+    <div>
+      <label for="selectCarBrand">Select a language: </label>
+      <select id="selectCarBrand" onChange={selectMovieHandler}>
+        <option value="Action-Films with exciting and fast-paced sequences">
+          Action
+        </option>
+        <option value="Comedy-Films intend to make the audience laugh">
+          Comedy
+        </option>
+        <option value="Drama-Films with serious theme and emotion">
+          Drama
+        </option>
+      </select>
+      <p>Description: {movie}</p>
+    </div>
+  );
+};
+
+export default function App() {
+  return (
+    <div>
+      <SelectInstrument />
+      <SelectLanguage />
+      <br />
+      <SelectCarBrand />
+      <SelectContinent />
+      <SelectMovie />
+    </div>
+  );
+}
