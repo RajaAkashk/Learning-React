@@ -1,0 +1,112 @@
+import React, { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [transportation, setTransportation] = useState("");
+  const [usage, setUsage] = useState("");
+  const [comment, setComment] = useState("");
+  const [experience, setExperience] = useState("");
+  const [agreement, setAgreement] = useState(false);
+  const [preferenceForm, setPreferenceForm] = useState(false);
+
+  const formSubmitHandler = (event) => {
+    event.preventDefault();
+
+    if (transportation && usage && experience && agreement) {
+      setPreferenceForm(true);
+    } else {
+      setPreferenceForm(false);
+    }
+  };
+
+  return (
+    <div>
+      <h1>Transportation Preference Form</h1>
+      <form onSubmit={formSubmitHandler}>
+        <label htmlFor="transportation">
+          Preferred Mode of Transportation:{" "}
+        </label>
+        <select
+          id="transportation"
+          required
+          onChange={(event) => setTransportation(event.target.value)}
+        >
+          <option value="">Select</option>
+          <option value="Car">Car</option>
+          <option value="Bus">Bus</option>
+          <option value="Train">Train</option>
+          <option value="Bicycle">Bicycle</option>
+          <option value="Walk">Walk</option>
+        </select>
+        <br /> <br />
+        <label htmlFor="usage">Frequency of Usage: </label>
+        <select
+          id="usage"
+          onChange={(event) => setUsage(event.target.value)}
+          required
+        >
+          <option value="">Select</option>
+          <option value="Daily">Daily</option>
+          <option value="Weekly">Weekly</option>
+          <option value="Monthly">Monthly</option>
+          <option value="Occasionally">Occasionally</option>
+        </select>
+        <br /> <br />
+        <label htmlFor="comments">Comments (if any):</label>
+        <br />
+        <textarea
+          id="comments"
+          rows="5"
+          cols="45"
+          onChange={(event) => setComment(event.target.value)}
+        ></textarea>
+        <br /> <br />
+        <label htmlFor="experience">Experience Level:</label>
+        <br />
+        <input
+          type="radio"
+          name="experience"
+          value="Beginner"
+          required
+          onChange={(event) => setExperience(event.target.value)}
+        />
+        Beginner <br />
+        <input
+          type="radio"
+          name="experience"
+          value="Intermediate"
+          required
+          onChange={(event) => setExperience(event.target.value)}
+        />
+        Intermediate <br />
+        <input
+          type="radio"
+          name="experience"
+          value="Advanced"
+          required
+          onChange={(event) => setExperience(event.target.value)}
+        />
+        Advanced <br />
+        <br />
+        <input
+          type="checkbox"
+          id="termAndCondition"
+          required
+          onChange={(event) => setAgreement(event.target.checked)}
+        />
+        I agree to the Terms and Conditions.
+        <br /> <br />
+        <button type="submit">Submit</button>
+      </form>
+      {preferenceForm && (
+        <div>
+          <h2>Submitted Details:</h2>
+          <p>Preferred Mode of Transportation: {transportation}</p>
+          <p>Frequency of Usage: {usage}</p>
+          <p>Comments: {comment.length > 0 ? comment : "none"}</p>
+          <p>Experience Level: {experience}</p>
+        </div>
+      )}
+    </div>
+  );
+}
