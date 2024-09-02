@@ -1,0 +1,136 @@
+import { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [name, setName] = useState("");
+  const [size, setSize] = useState("");
+  const [toppings, setToppings] = useState([]);
+  const [crustType, setCrustType] = useState("");
+  const [deliveryOption, setDeliveryOption] = useState("");
+  const [instruction, setInstructions] = useState("");
+  const [pizzaOrder, setPizzaOrder] = useState(false);
+
+  const pizzaToppingHandler = (event) => {
+    let value = event.target.value;
+    if (value) {
+      setToppings([...toppings, value]);
+    } else {
+      setToppings(toppings.filter((topping) => topping != value));
+    }
+  };
+
+  const pizzaOrderFormHandler = (event) => {
+    event.preventDefault();
+    if (name && size && crustType && deliveryOption && toppings) {
+      setPizzaOrder(true);
+    } else {
+      setPizzaOrder(false);
+    }
+  };
+  return (
+    <div>
+      <h1>Pizza Order Form</h1>
+      <form onSubmit={pizzaOrderFormHandler}>
+        <label>Customer Name: </label>
+        <input required onChange={(event) => setName(event.target.value)} />
+        <br /> <br />
+        <label htmlFor="selectSize">Choose Pizza Size: </label>
+        <select
+          id="selectSize"
+          required
+          onChange={(event) => setSize(event.target.value)}
+        >
+          <option value="">Select Size</option>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+        </select>
+        <br /> <br />
+        <label htmlFor="toppings">Choose Toppings:</label>
+        <br />
+        <div class="checkbox-group required">
+          <input
+            type="checkbox"
+            name="toppings"
+            value="Pepperoni"
+            onChange={pizzaToppingHandler}
+          />{" "}
+          Pepperoni <br />
+          <input
+            type="checkbox"
+            name="toppings"
+            value="Mushrooms"
+            onChange={pizzaToppingHandler}
+          />{" "}
+          Mushrooms <br />
+          <input
+            type="checkbox"
+            name="toppings"
+            value="Olives"
+            onChange={pizzaToppingHandler}
+          />
+          Olives
+        </div>{" "}
+        <br />
+        <label htmlFor="crustType">Choose Crust Type:</label>
+        <br />
+        <input
+          type="radio"
+          name="crustType"
+          value="Thin"
+          required
+          onChange={(event) => setCrustType(event.target.value)}
+        />
+        Thin <br />
+        <input
+          type="radio"
+          name="crustType"
+          value="Thick"
+          required
+          onChange={(event) => setCrustType(event.target.value)}
+        />
+        Thick
+        <br /> <br />
+        <label htmlFor="delivery">Choose Delivery Option:</label>
+        <br />
+        <input
+          type="radio"
+          name="delivery"
+          value="Pickup"
+          required
+          onChange={(event) => setDeliveryOption(event.target.value)}
+        />
+        Pickup <br />
+        <input
+          type="radio"
+          name="delivery"
+          value="Delivery"
+          required
+          onChange={(event) => setDeliveryOption(event.target.value)}
+        />
+        Delivery
+        <br /> <br />
+        <label htmlFor="instructions">Special Instructions (if any): </label>
+        <br />
+        <textarea
+          id="instructions"
+          rows="5"
+          cols="45"
+          onChange={(event) => setInstructions(event.target.value)}
+        ></textarea>
+        <br /> <br />
+        <button type="submit">Place Order</button>
+      </form>
+      {pizzaOrder && (
+        <div>
+          <p>Customer Name: {name}</p>
+          <p>Pizza Size: {size}</p>
+          <p>Toppings: {toppings.join(", ")}</p>
+          <p>Crust Type: {crustType}</p>
+          <p>Delivery Option: {deliveryOption}</p>
+          <p>Special Instructions: {instruction ? instruction : "none"}</p>
+        </div>
+      )}
+    </div>
+  );
+}
