@@ -1,0 +1,63 @@
+import { useState } from "react";
+import "./styles.css";
+
+const PositiveAndNegative = () => {
+  const [count, setCount] = useState(0);
+  const incrementCount = () => {
+    setCount((prevCount) => (prevCount += 1));
+  };
+  const decrementCount = () => {
+    setCount((prevCount) => (prevCount -= 1));
+  };
+  return (
+    <div>
+      <h2>Positive and Negative</h2>
+      <p>Count: {count}</p>
+      <p>The Count is {count > 0 ? "positive" : "negative"}.</p>
+      <button onClick={incrementCount}>Increment</button>
+      <button onClick={decrementCount}>Decrement</button>
+    </div>
+  );
+};
+
+const UserLogin = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [userLogin, setUserLogin] = useState(false);
+
+  const userLoginHandler = (event) => {
+    event.preventDefault();
+    if (username && password) {
+      setUserLogin(true);
+    } else {
+      setUserLogin(false);
+    }
+  };
+  return (
+    <div>
+      <h2>User Login</h2>
+      {userLogin ? (
+        <h2>Welcome,{username}!</h2>
+      ) : (
+        <form onSubmit={userLoginHandler}>
+          <label htmlFor="username">Username: </label>
+          <input
+            id="username"
+            onChange={(event) => setUsername(event.target.value)}
+          />{" "}
+          <br />
+          <br />
+          <label htmlFor="password">Password: </label>
+          <input
+            type="password"
+            id="password"
+            onChange={(event) => setPassword(event.target.value)}
+          />{" "}
+          <br />
+          <br />
+          <button type="submit">Login</button>
+        </form>
+      )}
+    </div>
+  );
+};
