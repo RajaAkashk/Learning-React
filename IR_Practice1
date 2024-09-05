@@ -72,15 +72,3 @@ const TemperatureConverter = () => {
   const fahrenheitToCelsius = (value) => {
     setCelsius(((value - 32) * 5) / 9);
   };
-  return (
-    <div>
-      <h2>Temperature Converter</h2>
-      <label htmlFor="celsius">Celsius: </label>
-      <input
-        id="celsius"
-        value={celsius}
-        onChange={(event) => {
-          let value = event.target.value;
-          setCelsius(value);
-          celsiusToFahrenheit(value);
-        }}
