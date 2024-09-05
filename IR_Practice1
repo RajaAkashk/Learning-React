@@ -85,3 +85,18 @@ const TemperatureConverter = () => {
           celsiusToFahrenheit(value);
         }}
       />
+      <br />
+      <br />
+      <label htmlFor="fahrenheit">Fahrenheit: </label>
+      <input
+        id="fahrenheit"
+        value={fahrenheit}
+        onChange={(event) => {
+          let value = event.target.value;
+          setFahrenheit(value);
+          fahrenheitToCelsius(value);
+        }}
+      />
+    </div>
+  );
+};
