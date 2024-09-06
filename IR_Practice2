@@ -1,0 +1,31 @@
+import { useState } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [polesCompleted, setPolesCompleted] = useState(false);
+  const [value, setValue] = useState([]);
+  const questions = [
+    {
+      id: 1,
+      question: "Favorite Color?",
+      options: ["Red", "Blue", "Green", "Yellow"],
+    },
+    {
+      id: 2,
+      question: "Favorite Animal?",
+      options: ["Dog", "Cat", "Bird", "Fish"],
+    },
+    {
+      id: 3,
+      question: "Favorite Food?",
+      options: ["Pizza", "Burger", "Pasta", "Salad"],
+    },
+  ];
+  const pollHandler = (event) => {
+    event.preventDefault();
+    if (value.length > 0 && value.length <= 3) {
+      setPolesCompleted(false);
+    } else {
+      setPolesCompleted(true);
+    }
+  };
