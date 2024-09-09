@@ -31,3 +31,8 @@ export default function App() {
   };
 
   return (
+    <div>
+      <h1>Polling App</h1>
+      {polesCompleted ? (
+        <h3>Thank You for Participating!</h3>
+      ) : (
