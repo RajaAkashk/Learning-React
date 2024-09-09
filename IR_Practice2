@@ -44,3 +44,21 @@ export default function App() {
                 {data.options.map((element) => (
                   <li>
                     <input
+                      key={element}
+                      type="radio"
+                      name={data.question}
+                      value={element}
+                      onChange={(event) => setValue(event.target.value)}
+                    />
+                    {element}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <button type="submit">Submit</button>
+        </form>
+      )}
+    </div>
+  );
+}
