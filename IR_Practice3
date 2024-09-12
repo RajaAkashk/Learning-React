@@ -33,3 +33,7 @@ export default function App() {
     if (questionIndex < questions.length - 1) {
       setCurrentAnswer("");
       setQuestionIndex((prevIndex) => prevIndex + 1);
+    } else {
+      setQuizComplete(true);
+    }
+  };
