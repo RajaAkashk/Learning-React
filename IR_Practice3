@@ -37,25 +37,3 @@ export default function App() {
       setQuizComplete(true);
     }
   };
-
-  const calculateScore = () => {
-    return answers.reduce((score, answer, index) => {
-      if (answer === questions[index].correctAnswer) {
-        score += 1;
-      }
-      return score;
-    }, 0);
-  };
-
-  return (
-    <div>
-      <h2>Quiz App</h2>
-      {quizComplete ? (
-        <div>
-          <h3>Quiz Result</h3>
-          <p>
-            Your score: {calculateScore()} / {questions.length}
-          </p>
-        </div>
-      ) : (
-        <div>
