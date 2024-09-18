@@ -59,6 +59,3 @@ export default function App() {
         </div>
       ) : (
         <div>
-          <h3>{`Question ${questions[questionIndex].id}`}</h3>
-          <p>{questions[questionIndex].question}</p>
-          <ul>
