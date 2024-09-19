@@ -50,3 +50,9 @@ export default function App() {
   return (
     <div>
       <h2>Quiz App</h2>
+      {quizComplete ? (
+        <div>
+          <h3>Quiz Result</h3>
+          <p>
+            Your score: {calculateScore()} / {questions.length}
+          </p>
