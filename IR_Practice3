@@ -36,3 +36,13 @@ export default function App() {
     } else {
       setQuizComplete(true);
     }
+  };
+
+  const calculateScore = () => {
+    return answers.reduce((score, answer, index) => {
+      if (answer === questions[index].correctAnswer) {
+        score += 1;
+      }
+      return score;
+    }, 0);
+  };
