@@ -46,3 +46,8 @@ export default function App() {
       return score;
     }, 0);
   };
+
+  return (
+    <div>
+      <h2>Quiz App</h2>
+      {quizComplete ? (
