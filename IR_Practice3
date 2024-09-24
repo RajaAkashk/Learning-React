@@ -58,3 +58,26 @@ export default function App() {
           </p>
         </div>
       ) : (
+        <div>
+          <h3>{`Question ${questions[questionIndex].id}`}</h3>
+          <p>{questions[questionIndex].question}</p>
+          <ul>
+            {questions[questionIndex].options.map((option) => (
+              <li key={option}>
+                <input
+                  type="radio"
+                  value={option}
+                  name={`question-${questions[questionIndex].id}`}
+                  onChange={(event) => setCurrentAnswer(event.target.value)}
+                  checked={currentAnswer === option}
+                />
+                {option}
+              </li>
+            ))}
+          </ul>
+          <button onClick={quizAppSubmit}>Next</button>
+        </div>
+      )}
+    </div>
+  );
+}
