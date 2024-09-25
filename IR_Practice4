@@ -1,0 +1,16 @@
+import { useState } from "react";
+import "./styles.css";
+
+const FeedbackApp = () => {
+  const questions = [
+    {
+      id: 1,
+      question: "Rate the overall experience:",
+      options: ["Excellent", "Good", "Average", "Poor"],
+    },
+    {
+      id: 2,
+      question: "How likely are you to recommend us to a friend or colleague?",
+      options: ["Very Likely", "Likely", "Unlikely", "Very Unlikely"],
+    },
+  ];
