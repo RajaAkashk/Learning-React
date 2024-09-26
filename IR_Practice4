@@ -18,8 +18,4 @@ const FeedbackApp = () => {
   const [answers, setAnswer] = useState({});
   const [feedbackForm, setFeedbackForm] = useState(false);
 
-  const onChangehandler = (questionId, option) => {
-    setAnswer((prevAnswer) => ({ ...prevAnswer, [questionId]: option }));
-  };
-
 
