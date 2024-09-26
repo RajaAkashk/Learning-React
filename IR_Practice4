@@ -13,9 +13,6 @@ const FeedbackApp = () => {
       question: "How likely are you to recommend us to a friend or colleague?",
       options: ["Very Likely", "Likely", "Unlikely", "Very Unlikely"],
     },
-  ];
-
-  const [answers, setAnswer] = useState({});
-  const [feedbackForm, setFeedbackForm] = useState(false);
+  
 
 
