@@ -25,6 +25,5 @@ const FeedbackApp = () => {
   const submitFormHandler = (event) => {
     event.preventDefault();
     if (Object.keys(answers).length === questions.length) {
-      setFeedbackForm(true);
-    } else {
+
 
