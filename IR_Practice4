@@ -27,6 +27,4 @@ const FeedbackApp = () => {
     if (Object.keys(answers).length === questions.length) {
       setFeedbackForm(true);
     } else {
-      alert("Please answer all questions before submitting.");
-    }
-  };
+
