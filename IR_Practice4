@@ -35,12 +35,6 @@ const FeedbackApp = () => {
       {feedbackForm ? (
         <div>
           <h3>Thank You for your Feedback!</h3>
-          <p>
-            Your answers:{" "}
-            {questions.map((question) => answers[question.id]).join(", ")}
-          </p>
-        </div>
-      ) : (
-
+   
 
 
