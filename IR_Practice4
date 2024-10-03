@@ -22,6 +22,14 @@ const FeedbackApp = () => {
     setAnswer((prevAnswer) => ({ ...prevAnswer, [questionId]: option }));
   };
 
+  const submitFormHandler = (event) => {
+    event.preventDefault();
+    if (Object.keys(answers).length === questions.length) {
+      setFeedbackForm(true);
+    } else {
+      alert("Please answer all questions before submitting.");
+    }
+  };
 
 
 
