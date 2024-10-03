@@ -30,11 +30,6 @@ const FeedbackApp = () => {
       alert("Please answer all questions before submitting.");
     }
   };   return (
-    <div>
-      <h2>Feedback App </h2>
-      {feedbackForm ? (
-        <div>
-          <h3>Thank You for your Feedback!</h3>
    
 
 
