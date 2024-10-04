@@ -141,11 +141,4 @@ const FavouriteMovieApp = () => {
   );
 };
 
-export default function App() {
-  return (
-    <>
-      <FeedbackApp />
-      <FavouriteMovieApp />
-    </>
-  );
-}
+
