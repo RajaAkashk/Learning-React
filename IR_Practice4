@@ -132,9 +132,6 @@ const FavouriteMovieApp = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-          ))}
-          <button type="submit">Submit</button>
-        </form>
+      
 
 
