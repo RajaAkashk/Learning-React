@@ -121,11 +121,7 @@ const FavouriteMovieApp = () => {
               <ul>
                 {movie.options.map((option) => (
                   <li key={option}>
-                    <input
-                      type="radio"
-                      name={movie.id}
-                      value={option}
-                      onChange={() => onChangeHandler(movie.id, option)}
+     
         
       
 
