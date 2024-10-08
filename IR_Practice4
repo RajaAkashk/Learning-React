@@ -126,12 +126,7 @@ const FavouriteMovieApp = () => {
                       name={movie.id}
                       value={option}
                       onChange={() => onChangeHandler(movie.id, option)}
-                      checked={answers[movie.id] === option}
-                    />
-                    {option}
-                  </li>
-                ))}
-              </ul>
+        
       
 
 
