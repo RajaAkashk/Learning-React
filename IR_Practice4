@@ -116,11 +116,7 @@ const FavouriteMovieApp = () => {
       ) : (
         <form onSubmit={movieFormHadler}>
           {questions.map((movie) => (
-            <div>
-              <h3>{movie.question}</h3>
-              <ul>
-                {movie.options.map((option) => (
-                  <li key={option}>
+
      
         
       
