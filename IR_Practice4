@@ -112,10 +112,6 @@ const FavouriteMovieApp = () => {
         <div>
           <h3>Thank You for Sharing Your Favorites!</h3>
           <p>{questions.map((movie) => answers[movie.id]).join(", ")}</p>
-        </div>
-      ) : (
-        <form onSubmit={movieFormHadler}>
-          {questions.map((movie) => (
 
      
         
