@@ -105,13 +105,8 @@ const FavouriteMovieApp = () => {
     setAnswer((prevAnswer) => ({ ...prevAnswer, [questionId]: option }));
   };
 
-  return (
-    <div>
-      <h2>Favourite Movie App</h2>
-      {movieForm ? (
-        <div>
-          <h3>Thank You for Sharing Your Favorites!</h3>
-          <p>{questions.map((movie) => answers[movie.id]).join(", ")}</p>
+
+
 
      
         
