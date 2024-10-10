@@ -92,11 +92,7 @@ const FavouriteMovieApp = () => {
   const [answers, setAnswer] = useState({});
   const [movieForm, setMovieForm] = useState(false);
 
-  const movieFormHadler = (event) => {
-    event.preventDefault();
-    if (Object.keys(answers).length === questions.length) {
-      setMovieForm(true);
-  
+
      
         
       
