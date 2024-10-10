@@ -96,12 +96,7 @@ const FavouriteMovieApp = () => {
     event.preventDefault();
     if (Object.keys(answers).length === questions.length) {
       setMovieForm(true);
-    } else {
-      alert("Choose the option from Movie App ");
-    }
-  };
-
-
+  
      
         
       
