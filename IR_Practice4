@@ -101,12 +101,6 @@ const FavouriteMovieApp = () => {
     }
   };
 
-  const onChangeHandler = (questionId, option) => {
-    setAnswer((prevAnswer) => ({ ...prevAnswer, [questionId]: option }));
-  };
-
-
-
 
      
         
