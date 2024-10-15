@@ -89,8 +89,7 @@ const FavouriteMovieApp = () => {
     },
   ];
 
-  const [answers, setAnswer] = useState({});
-  const [movieForm, setMovieForm] = useState(false);
+
 
 
      
