@@ -86,9 +86,6 @@ const FavouriteMovieApp = () => {
         "Pulp Fiction",
         "The Dark Knight",
       ],
-    },
-  ];
-
 
 
 
