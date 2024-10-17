@@ -82,7 +82,7 @@ const FavouriteMovieApp = () => {
       question: "Favorite Movie of All Time?",
       options: [
         "The Shawshank Redemption",
-        "The Godfather",
+    
    
       
      
