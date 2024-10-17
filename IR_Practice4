@@ -81,14 +81,71 @@ const FavouriteMovieApp = () => {
       id: 2,
       question: "Favorite Movie of All Time?",
       options: [
-        
-    
-   
-      
-     
+        "The Shawshank Redemption",
+        "The Godfather",
+        "Pulp Fiction",
+        "The Dark Knight",
+      ],
+    },
+  ];
 
-     
-        
-      
+  const [answers, setAnswer] = useState({});
+  const [movieForm, setMovieForm] = useState(false);
 
+  const movieFormHadler = (event) => {
+    event.preventDefault();
+    if (Object.keys(answers).length === questions.length) {
+      setMovieForm(true);
+    } else {
+      alert("Choose the option from Movie App ");
+    }
+  };
 
+  const onChangeHandler = (questionId, option) => {
+    setAnswer((prevAnswer) => ({ ...prevAnswer, [questionId]: option }));
+  };
+
+  return (
+    <div>
+      <h2>Favourite Movie App</h2>
+      {movieForm ? (
+        <div>
+          <h3>Thank You for Sharing Your Favorites!</h3>
+          <p>{questions.map((movie) => answers[movie.id]).join(", ")}</p>
+        </div>
+      ) : (
+        <form onSubmit={movieFormHadler}>
+          {questions.map((movie) => (
+            <div>
+              <h3>{movie.question}</h3>
+              <ul>
+                {movie.options.map((option) => (
+                  <li key={option}>
+                    <input
+                      type="radio"
+                      name={movie.id}
+                      value={option}
+                      onChange={() => onChangeHandler(movie.id, option)}
+                      checked={answers[movie.id] === option}
+                    />
+                    {option}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <button type="submit">Submit</button>
+        </form>
+      )}
+    </div>
+  );
+};
+
+export default function App() {
+  return (
+    <>
+      <FeedbackApp />
+      <FavouriteMovieApp />
+    </>
+  );
+}
