@@ -1,0 +1,191 @@
+import { useState } from "react";
+import "./styles.css";
+
+const TravelDestinationApp = () => {
+  const questions = {
+    question: "Select Your Preferred Continent:",
+    options: {
+      Asia: ["Japan", "Thailand", "India"],
+      Europe: ["France", "Italy", "Spain"],
+      "North America": ["USA", "Canada", "Mexico"],
+    },
+  };
+
+  const [selectedContinent, setSelectedContinent] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [destinationForm, setDestinationForm] = useState(false);
+
+  const onChangeHandlers = (event) => {
+    setSelectedContinent(event.target.value);
+  };
+
+  const showOptions = () => {
+    if (selectedContinent) {
+      const filteredInfo = questions.options[selectedContinent];
+      return (
+        <div>
+          <label>Select Your Preferred Destination:</label>
+          <div>
+            {filteredInfo.map((country) => (
+              <div key={country}>
+                <label htmlFor={country}>
+                  <input
+                    id={country}
+                    name="country"
+                    value={country}
+                    type="radio"
+                    checked={country === selectedCountry}
+                    onChange={onChangeCountryHandler}
+                  />
+                  {country}
+                </label>
+              </div>
+            ))}
+          </div>
+          <br />
+        </div>
+      );
+    }
+  };
+
+  const onChangeCountryHandler = (event) => {
+    setSelectedCountry(event.target.value);
+  };
+
+  const destinationFormHandler = (event) => {
+    event.preventDefault();
+    if (selectedCountry) {
+      setDestinationForm(true);
+    } else {
+      setDestinationForm(false);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Travel Destination App</h2>
+      {destinationForm ? (
+        <div>
+          <h3>Thank You for Sharing Your Prefrences!</h3>
+          <p>Preferred Continent: {selectedContinent}</p>
+          <p>Preferred Country: {selectedCountry}</p>
+        </div>
+      ) : (
+        <div>
+          <div>
+            <label for="destination">{questions.question} </label>
+            <select
+              id="destination"
+              value={selectedContinent}
+              onChange={onChangeHandlers}
+            >
+              <option value="">--Select Continent--</option>
+              {Object.keys(questions.options).map((continent) => (
+                <option key={continent} value={continent}>
+                  {continent}
+                </option>
+              ))}
+            </select>{" "}
+            <br />
+          </div>
+          <br />
+          <form onSubmit={destinationFormHandler}>
+            <div>{showOptions()}</div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const MusicPreferredApp = () => {
+  const questions = {
+    question: "Which type of music do you prefer?",
+    options: {
+      Rock: ["Classic Rock", "Alternative Rock", "Indie Rock"],
+      Pop: ["Pop Rock", "Synth-pop", "Electropop"],
+      "Hip Hop": ["East Coast Hip Hop", "West Coast Hip Hop", "Trap Music"],
+    },
+  };
+
+  const [selectedGenre, setSelectedGenre] = useState("");
+  const [selectedSubGenre, setSelectedSubGenre] = useState("");
+  const [genreForm, setGenreForm] = useState(false);
+
+  const showOptions = () => {
+    if (selectedGenre) {
+      const filteredOption = questions.options[selectedGenre];
+      return (
+        <div>
+          <p>Select Your Preferred Subgenre: </p>
+          {filteredOption.map((name) => (
+            <label htmlFor={name} key={name}>
+              <input
+                id={name}
+                value={name}
+                type="radio"
+                name="music"
+                onChange={(event) => setSelectedSubGenre(event.target.value)}
+                checked={name === selectedSubGenre}
+              />
+              {name} <br />
+            </label>
+          ))}
+        </div>
+      );
+    }
+  };
+
+  const genreFormHandler = (event) => {
+    event.preventDefault();
+    if (selectedSubGenre) {
+      setGenreForm(true);
+    } else {
+      setGenreForm(false);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Music Preferred App</h2>
+      {genreForm ? (
+        <div>
+          <h3>Thank You for Sharing Your Prefrences!</h3>
+          <p>Preferred Genre: {selectedGenre}</p>
+          <p>Preferred Sub Genre: {selectedSubGenre}</p>
+        </div>
+      ) : (
+        <div>
+          <label htmlFor="genre">Select Your Preferred Genre: </label>
+          <select
+            id="genre"
+            value={selectedGenre}
+            onChange={(event) => setSelectedGenre(event.target.value)}
+          >
+            <option value="">--Select Genre--</option>
+            {Object.keys(questions.options).map((genre) => (
+              <option key={genre} value={genre}>
+                {genre}
+              </option>
+            ))}
+          </select>
+          <form onSubmit={genreFormHandler}>
+            {showOptions()}
+            <br />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default function App() {
+  return (
+    <div>
+      <TravelDestinationApp />
+      <MusicPreferredApp />
+    </div>
+  );
+}
