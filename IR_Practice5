@@ -1,4 +1,4 @@
-import { useState } from "react";
+poimport { useState } from "react";
 import "./styles.css";
 
 const TravelDestinationApp = () => {
@@ -180,10 +180,7 @@ const MusicPreferredApp = () => {
     </div>
   );
 };
-
-
-  
-    
+export default 
       
  
 
