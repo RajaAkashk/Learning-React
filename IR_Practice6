@@ -1,0 +1,23 @@
+  const questions = [
+    {
+      question: "Which type of cuisine do you prefer?",
+      options: {
+        Asian: ["Chinese", "Japanese", "Indian"],
+        European: ["Italian", "French", "Spanish"],
+        American: ["Burgers", "Pizza", "BBQ"],
+      },
+    },
+  ];
+
+  const [selectedCuisine, setSelectedCuisine] = useState("");
+  const [cuisineForm, setCuisineForm] = useState(false);
+  const [answers, setAnswer] = useState([]);
+
+  const handleCheckBoxes = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setAnswer((prevAnswer) => [...prevAnswer, value]);
+    } else {
+      setAnswer((prevAnswer) => prevAnswer.filter((answer) => answer != value));
+    }
+  };
