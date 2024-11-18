@@ -181,10 +181,12 @@ const MusicPreferredApp = () => {
   );
 };
 
-export default 
-  
-    
-      
- 
+export default function App() {
+  return (
+    <div>
+      <TravelDestinationApp />
+      <MusicPreferredApp />
+    </div>
+  );
+}
 
-  
